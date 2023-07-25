@@ -25,6 +25,11 @@ public class HomeServlet extends HttpServlet {
 
         List<ProductDTO> allProducts = productService.findAllProductSortedByName();
 
+        // Test : <file>/tmp/servlet-logs/applications.log</file> // My machine location
+        for(int i = 0; i < 1_000; i++){
+            LOGGER.info("dummy log!");
+        }
+
         req.setAttribute("products", allProducts);
         req.getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
 
